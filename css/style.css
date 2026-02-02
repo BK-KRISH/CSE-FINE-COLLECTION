@@ -147,3 +147,16 @@ footer {
     margin-bottom: 10px;
 }
 
+.fine-table button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #0b3c5d;
+    color: rgb(238, 164, 164);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.fine-table button:hover {
+    opacity: 0.9;
+}
+

@@ -26,34 +26,29 @@
     <table class="fine-table">
         <thead>
             <tr>
+                <th>Action</th>
                 <th>Fine Reason</th>
                 <th>Amount (₹)</th>
                 <th>Status</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>Library Late Return</td>
-                <td>100</td>
-                <td><span class="status pending">Pending</span></td>
-            </tr>
-            <tr>
-                <td>ID Card Loss</td>
-                <td>200</td>
-                <td><span class="status paid">Paid</span></td>
-            </tr>
+
+        <tbody id="studentFineTable">
+            <!-- Rows inserted by JS -->
         </tbody>
     </table>
 
-    <!-- Total -->
     <div class="total-box">
-        <h4>Total Fine: ₹300</h4>
+        <h4 id="studentTotal">Total Fine: ₹ 0</h4>
     </div>
 </main>
 
 <footer>
     <p>© 2026 CSE Department</p>
 </footer>
+
+<!-- Student JS -->
+<script src="js/student.js"></script>
 
 </body>
 </html>
