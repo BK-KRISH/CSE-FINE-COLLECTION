@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | CSE Fine Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script>
+function calculateTotals() {
+    let totalCollected = 0;
+    let pendingAmount = 0;
+
+    const rows = document.querySelectorAll("#fineTableBody tr");
+
+    rows.forEach(row => {
+        const amount = parseInt(row.children[2].innerText);
+        const status = row.children[3].innerText.trim();
+
+        if (status === "Paid") {
+            totalCollected += amount;
+        } else {
+            pendingAmount += amount;
+        }
+    });
+
+    document.getElementById("totalCollected").innerText = "₹ " + totalCollected;
+    document.getElementById("pendingAmount").innerText = "₹ " + pendingAmount;
+}
+
+function addFine(event) {
+    event.preventDefault();
+
+    const regNo = document.getElementById("regNo").value;
+    const reason = document.getElementById("reason").value;
+    const amount = document.getElementById("amount").value;
+
+    const tableBody = document.getElementById("fineTableBody");
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>${regNo}</td>
+        <td>${reason}</td>
+        <td>${amount}</td>
+        <td><span class="status pending">Pending</span></td>
+    `;
+
+    tableBody.appendChild(row);
+
+    document.getElementById("regNo").value = "";
+    document.getElementById("reason").value = "";
+    document.getElementById("amount").value = "";
+
+    calculateTotals(); // 🔥 update totals
+}
+
+// calculate totals on page load
+window.onload = calculateTotals;
+</script>
+<header>
+    <h1>Suguna College of Engineering</h1>
+    <h2>Computer Science & Engineering</h2>
+</header>
+
+<main class="container">
+    <h3>Admin Dashboard</h3>
+
+    <!-- Summary -->
+    <div class="admin-summary">
+        <div class="summary-card">
+            <h4>Total Collected</h4>
+            <p id="totalCollected">₹ 0</p>
+        </div>
+        <div class="summary-card">
+            <h4>Pending Amount</h4>
+            <p id="pendingAmount">₹ 0</p>
+        </div>
+    </div>
+
+    <!-- Add Fine Form -->
+    <h4>Add Fine</h4>
+    <form class="login-form" onsubmit="addFine(event)">
+        <div class="form-group">
+            <label>Register Number</label>
+            <input type="text" id="regNo" placeholder="Enter Register Number" required>
+
+        </div>
+
+        <div class="form-group">
+            <label>Fine Reason</label>
+            <input type="text" id="reason" placeholder="Enter Fine Reason" required>
+
+        </div>
+
+        <div class="form-group">
+            <label>Amount (₹)</label>
+            <input type="number" id="amount" placeholder="Enter Amount" required>
+
+        </div>
+
+        <button type="submit" class="btn full admin">Add Fine</button>
+    </form>
+
+    <!-- Fine Records -->
+    <h4 style="margin-top:30px;">Fine Records</h4>
+
+    <table class="fine-table">
+        <thead>
+            <tr>
+                <th>Register No</th>
+                <th>Reason</th>
+                <th>Amount (₹)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="fineTableBody">
+>
+            <tr>
+                <td>715023104301</td>
+                <td>Library Late Return</td>
+                <td>100</td>
+                <td><span class="status pending">Pending</span></td>
+            </tr>
+            <tr>
+                <td>715023104301</td>
+                <td>ID Card Loss</td>
+                <td>200</td>
+                <td><span class="status paid">Paid</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+</main>
+
+<footer>
+    <p>© 2026 CSE Department</p>
+</footer>
+
+</body>
+</html>
