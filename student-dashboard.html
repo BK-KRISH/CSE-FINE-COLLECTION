@@ -7,19 +7,27 @@
 </head>
 <body>
 
+<!-- ================= HEADER ================= -->
 <header>
     <h1>Suguna College of Engineering</h1>
     <h2>Computer Science & Engineering</h2>
 </header>
 
+<!-- ================= MAIN ================= -->
 <main class="container">
+
     <h3>Student Dashboard</h3>
 
-    <!-- Student Info -->
+    <!-- Student Info (static for now, logic handled in JS) -->
     <div class="student-info">
-        <p><strong>Name:</strong> Barani Krishnan</p>
-        <p><strong>Register No:</strong> 715023104301</p>
+        <p><strong>Name:</strong> Student</p>
+        <p><strong>Register No:</strong> <span id="studentRegDisplay">-</span></p>
         <p><strong>Department:</strong> CSE</p>
+    </div>
+
+    <!-- Logout -->
+    <div style="text-align: right; margin-bottom: 15px;">
+        <button id="logoutBtn" class="btn admin">Logout</button>
     </div>
 
     <!-- Fine Table -->
@@ -34,20 +42,23 @@
         </thead>
 
         <tbody id="studentFineTable">
-            <!-- Rows inserted by JS -->
+            <!-- Rows injected by student.js -->
         </tbody>
     </table>
 
+    <!-- Total -->
     <div class="total-box">
         <h4 id="studentTotal">Total Fine: ₹ 0</h4>
     </div>
+
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer>
     <p>© 2026 CSE Department</p>
 </footer>
 
-<!-- Student JS -->
+<!-- ================= JS ================= -->
 <script src="js/student.js"></script>
 
 </body>

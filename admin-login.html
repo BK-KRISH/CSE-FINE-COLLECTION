@@ -1,45 +1,44 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Admin Login | CSE Fine Portal</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <script>
-    function adminLogin(event) {
-        event.preventDefault();
-        window.location.href = "admin-dashboard.html";
-    }
-    </script>
-        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login | CSE Fine Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <header>
-        <h1>Suguna College of Engineering</h1>
-        <h2>Computer Science & Engineering</h2>
-    </header>
+<!-- ================= HEADER ================= -->
+<header>
+    <h1>Suguna College of Engineering</h1>
+    <h2>Computer Science & Engineering</h2>
+</header>
 
-    <main class="container">
-        <h3>Admin Login</h3>
+<!-- ================= MAIN ================= -->
+<main class="container">
+    <h3>Admin Login</h3>
 
-        <form class="login-form" onsubmit="adminLogin(event)">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" placeholder="Enter Username" required>
-            </div>
+    <form class="login-form" id="adminLoginForm">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="adminUsername" placeholder="Enter Username">
+        </div>
 
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" placeholder="Enter Password" required>
-            </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter Password">
+        </div>
 
-            <button type="submit" class="btn full admin">Login</button>
-        </form>
-    </main>
+        <button type="submit" class="btn full admin">Login</button>
+    </form>
+</main>
 
-    <footer>
-        <p>© 2026 CSE Department</p>
-    </footer>
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 CSE Department</p>
+</footer>
 
-    </body>
-    </html>
+<!-- ================= JS ================= -->
+<script src="js/admin-login.js"></script>
+
+</body>
+</html>
